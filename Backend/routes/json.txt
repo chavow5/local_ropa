@@ -1,4 +1,5 @@
-{
+# agregar nuevo producto  
+  {
     "nombre": "Remera blanca",
     "descripcion": "Remera de algodón color blanca, talla M",
     "precio": 3500,
@@ -6,3 +7,10 @@
     "categoria_id": 1,
     "imagen": "https://ejemplo.com/imagen-remera.jpg"
   }
+# agregar nueva categoria
+  {
+    "nombre": "Pantalones",
+    "descripcion": "Categoría para pantalones de diferentes estilos y tallas"
+  }
+
+

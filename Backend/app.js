@@ -4,6 +4,9 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { conectarDB } from "./db.js";  // la función y la DB
 import productosRoutes from "./routes/productos.js";
+import categoriasRoutes from "./routes/categorias.js";
+
+
 
 const app = express();
 const PORT = process.env.PORT ?? 3000; // si el puerto 3000 esta en uso busca otro puerto
@@ -13,10 +16,11 @@ app.use(cors());
 
 // Conectar a la base de datos antes de iniciar el servidor
 conectarDB().then(() => {
-    console.log("🚀 Base de datos conectada, iniciando servidor...");
+  console.log("🚀 Base de datos conectada, iniciando servidor...");
   
-    // Rutas
-    app.use("/api/productos", productosRoutes);
+  // Rutas
+  app.use("/api/productos", productosRoutes);
+  app.use("/api/categorias", categoriasRoutes);
   
     app.listen(PORT, () => {
       console.log(`✅ Servidor corriendo en http://localhost:${PORT}`);
