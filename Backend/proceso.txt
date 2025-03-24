@@ -1,0 +1,9 @@
+crear la base de datos, ya creada
+
+npm init 
+
+npm install express mysql2 dotenv cors
+express: Framework para el backend.
+mysql2: Para conectar con MySQL.
+dotenv: Para manejar variables de entorno.
+cors: Para permitir conexiones desde el frontend.

@@ -1,0 +1,8 @@
+{
+    "nombre": "Remera blanca",
+    "descripcion": "Remera de algodón color blanca, talla M",
+    "precio": 3500,
+    "stock": 20,
+    "categoria_id": 1,
+    "imagen": "https://ejemplo.com/imagen-remera.jpg"
+  }
