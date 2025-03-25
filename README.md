@@ -14,7 +14,7 @@ editar categoria
 obs 
 tabla de productos falta el nombre de la categoria (modificar en ese caso)
 
-posibles mejoras en categorias
+posibles mejoras en categorias (mejorado)
 Permitir eliminar categorías, pero asignar los productos a una "Categoría por defecto"
 Se crea una categoría especial, por ejemplo "Sin categoría" (id = 1).
 

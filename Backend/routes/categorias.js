@@ -71,19 +71,25 @@ router.put("/:id", async (req, res) => {
     }
   });
 
-// Eliminar una categoría
-router.delete("/:id", async (req, res) => {
-  try {
-    const db = await conectarDB();
-    const [result] = await db.query("DELETE FROM categorias WHERE id = ?", [req.params.id]);
+  router.delete("/:id", async (req, res) => {
+    const { id } = req.params;
 
-    if (result.affectedRows === 0) return res.status(404).json({ error: "Categoría no encontrada" });
+    try {
+        const db = await conectarDB(); // ← Aquí aseguramos que la conexión esté disponible
+        
+        // Reasignar productos a la categoría por defecto antes de eliminar
+        await db.query("UPDATE productos SET categoria_id = 1 WHERE categoria_id = ?", [id]);
+        
+        // Eliminar la categoría
+        const [result] = await db.query("DELETE FROM categorias WHERE id = ?", [id]);
 
-    res.json({ message: "Categoría eliminada" });
-  } catch (error) {
-    console.error("Error al eliminar la categoría:", error);
-    res.status(500).json({ error: "Error al eliminar la categoría" });
-  }
+        if (result.affectedRows === 0) return res.status(404).json({ error: "Categoría no encontrada" });
+
+        res.json({ message: "Categoría eliminada y productos reasignados" });
+    } catch (error) {
+        console.error("Error al eliminar la categoría:", error);
+        res.status(500).json({ error: "Error al eliminar la categoría" });
+    }
 });
 
 export default router;
